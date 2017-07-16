@@ -119,6 +119,11 @@ class Opsi_Util {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-opsi-util-public.php';
 
+		/**
+		 * The class responsible for defining all actions that occur relating to chapters.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapters.php';
+
 		$this->loader = new Opsi_Util_Loader();
 
 	}
@@ -167,7 +172,7 @@ class Opsi_Util {
 
 		$plugin_admin = new Opsi_Util_Chapters( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'init', $plugin_admin, 'regist_chapter_type' );
+		$this->loader->add_action( 'init', $plugin_admin, 'register_chapter_type' );
 		$this->loader->add_action( 'edit_form_after_title', $plugin_admin, 'label_chapter_history' );
 
 	}
