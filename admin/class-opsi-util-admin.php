@@ -100,42 +100,4 @@ class Opsi_Util_Admin {
 
 	}
 
-	/**
-	 * Register the chapter post type.
-	 *
-	 * @since    1.0.0
-	 */
-	public function register_chapter_type() {
-    	register_post_type('opsi_chapter',
-        				array(
-                        	'labels'      => array(
-                            	'name'           => __('Chapters'),
-                            	'singular_name'  => __('Chapter'),
-                            	'all_items'      => __('All Chapters'),
-
-                        	),
-	                        'public'               => true,
-	                        'show_ui'              => true,
-	                        'menu_icon'            => 'dashicons-book',
-	                        'has_archive'          => false,
-	                        'rewrite'              => array( 'slug' => 'chapter' ),
-	                        'capability_type'      => 'post',
-	                        'supports'             => ['title', 'editor'], 
-                       )
-		);
-	}
-
-	/**
-	 * Put the label 'Chapter History' on the editor for the chapter post type.
-	 *
-	 * @since    1.0.0
-	 */
-	public function label_chapter_history() {
-
-		if (get_post_type() == 'opsi_chapter') {
-			echo __('<h1>Chapter History</h1>', $plugin_name);
-		}
-
-	}
-
 }

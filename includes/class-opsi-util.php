@@ -153,10 +153,25 @@ class Opsi_Util {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+	}
+
+	/**
+	 * Register all of the hooks related to the chapter post type functionality
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_admin_hooks() {
+
+		$plugin_admin = new Opsi_Util_Chapters( $this->get_plugin_name(), $this->get_version() );
+
 		$this->loader->add_action( 'init', $plugin_admin, 'regist_chapter_type' );
 		$this->loader->add_action( 'edit_form_after_title', $plugin_admin, 'label_chapter_history' );
 
 	}
+
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality
