@@ -63,7 +63,25 @@ class Opsi_Util_Chapters {
 		add_role( ' opsi_chapter_member', esc_html__('Chapter Member', $plugin_name) );
 		add_role( 'opsi_chapter_faculty', esc_html__('Faculty', $plugin_name) ); //TODO: is this the right name?
 		add_role( 'ospi_chapter', esc_html__('Chapter', $plugin_name), array('can_view_member_pages' => true) ); //TODO: chapter account or chapter admin account?
-		add_role( 'opsi_admin', esc_html__('National Board Account', $plugin_name))
+		add_role( 'opsi_admin', esc_html__('National Board Account', $plugin_name) );
+	}
+
+	public function remove_chapter_roles() {
+		remove_role( ' opsi_chapter_member' );
+		remove_role( 'opsi_chapter_faculty' );
+		remove_role( 'ospi_chapter' );
+		remove_role( 'opsi_admin' );
+	}
+
+	public function remove_chapter_capabilities() {
+		$role = get_role( 'administrator' );
+		$role->remove_cap( 'edit_chapters' );
+		$role->remove_cap( 'edit_others_chapters' );
+		$role->remove_cap( 'publish_chapters' );
+		$role->remove_cap( 'read_private_chapters' );
+		$role->remove_cap( 'delete_chapters' );
+		$role->remove_cap( 'create_chapters' );
+		$role->remove_cap( 'can_view_member_pages' );
 	}
 
 	/**

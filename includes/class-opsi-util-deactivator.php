@@ -23,6 +23,25 @@
 class Opsi_Util_Deactivator {
 
 	/**
+	 * Load the required dependencies for this plugin.
+	 *
+	 * Include the following files that make up the plugin:
+	 *
+	 * - Opsi_Util_Chapters. Defines chapter-related functionality.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private static function load_dependencies() {
+
+		/**
+		 * The class responsible for defining all actions that occur relating to chapters.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapters.php';
+
+	}
+
+	/**
 	 * Short Description. (use period)
 	 *
 	 * Long Description.
@@ -30,7 +49,9 @@ class Opsi_Util_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		$chapters = new Opsi_Util_Chapters('opsi_util', '1.0.0');
+		$chapters->remove_chapter_roles();
+		$chapters->remove_chapter_capabilites();
 	}
 
 }

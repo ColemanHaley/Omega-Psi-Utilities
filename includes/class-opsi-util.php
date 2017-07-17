@@ -74,6 +74,7 @@ class Opsi_Util {
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
+		$this->define_chapter_hooks();
 		$this->define_public_hooks();
 
 	}
@@ -86,6 +87,7 @@ class Opsi_Util {
 	 * - Opsi_Util_Loader. Orchestrates the hooks of the plugin.
 	 * - Opsi_Util_i18n. Defines internationalization functionality.
 	 * - Opsi_Util_Admin. Defines all hooks for the admin area.
+	 * - Opsi_Util_Chapters. Defines hooks for chapter-related functionality.
 	 * - Opsi_Util_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
@@ -168,7 +170,7 @@ class Opsi_Util {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_admin_hooks() {
+	private function define_chapter_hooks() {
 
 		$plugin_admin = new Opsi_Util_Chapters( $this->get_plugin_name(), $this->get_version() );
 

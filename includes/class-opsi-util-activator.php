@@ -23,6 +23,24 @@
 class Opsi_Util_Activator {
 
 	/**
+	 * Load the required dependencies for this plugin.
+	 *
+	 * Include the following files that make up the plugin:
+	 *
+	 * - Opsi_Util_Chapters. Defines chapter-related functionality.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private static function load_dependencies() {
+
+		/**
+		 * The class responsible for defining all actions that occur relating to chapters.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapters.php';
+
+	}
+	/**
 	 * Short Description. (use period)
 	 *
 	 * Long Description.
@@ -30,6 +48,10 @@ class Opsi_Util_Activator {
 	 * @since    1.0.0
 	 */
 	public static function activate() {
+
+		$chapters = new Opsi_Util_Chapters('opsi_util', '1.0.0');
+		$chapters->add_chapter_roles();
+		$chapters->add_chapter_capabilities();
 
 	}
 
