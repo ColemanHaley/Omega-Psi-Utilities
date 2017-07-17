@@ -90,7 +90,20 @@ class Opsi_Util_Chapters {
 	 * @since    1.0.0
 	 */
 	public function add_chapter_capabilities() {
-		$chapter_capabilites = array('edit_chapters', 'edit_others_chapters', 'publish_chapters', 'read_private_chapters', 'delete_chapters', 'create_chapters');
+		$chapter_capabilites = [
+								'edit_chapters',
+								'edit_published_chapters',
+								'edit_private_chapters'
+								'read_private_chapters', 
+								'edit_others_chapters', 
+								'publish_chapters', 
+								'read_private_chapters', 
+								'delete_chapters', 
+								'delete_others_chapters',
+								'delete_published_chapters',
+								'delete_private_chapters',
+								'create_chapters'
+								];
 		$admin_role = get_role('administrator');
 		$natl_role = get_role('opsi_admin');
 
@@ -105,6 +118,8 @@ class Opsi_Util_Chapters {
 		$chapter_role = get_role('ospi_chapter');
 		$chapter_role->add_cap('edit_chapters');
 		$chapter_role->add_cap('publish_chapters');
+		$chapter_role->add_cap('edit_published_chapters');
+		$chapter_role->add_cap('edit_private_chapters');
 	}
 
 	/**
@@ -123,10 +138,9 @@ class Opsi_Util_Chapters {
 
 		$args['labels'] = $labels;
 		$args['public'] = true;
-		$args['show_ui'] = true;
 		$args['menu_icon'] = 'dashicons-book';
 		$args['rewrite'] = array( 'slug' => 'chapters');
-		$args['capability_type'] = 'chapters';
+		$args['capability_type'] = 'chapter';
 		$args['capabilites'] = array('create_posts'=>'create_chapters');
 		$args['map_meta_cap'] = true;
 		$args['supports'] = ['title', 'editor'];
