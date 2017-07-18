@@ -128,7 +128,7 @@ class Opsi_Util_Chapters {
 	 * @since    1.0.0
 	 */
 	public function register_chapter_type() {
-
+/*
 		$args = array();
 
 		$labels = array();
@@ -146,6 +146,7 @@ class Opsi_Util_Chapters {
 		$args['supports'] = ['title', 'editor'];
 
     	register_post_type( 'opsi_chapter', $args );
+    	*/
 	}
 
 	/**
