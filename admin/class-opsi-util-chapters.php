@@ -93,7 +93,7 @@ class Opsi_Util_Chapters {
 		$chapter_capabilites = [
 								'edit_chapters',
 								'edit_published_chapters',
-								'edit_private_chapters'
+								'edit_private_chapters',
 								'read_private_chapters', 
 								'edit_others_chapters', 
 								'publish_chapters', 
