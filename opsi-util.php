@@ -21,6 +21,7 @@
  * Author URI:        www.cch22.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * GitHub Plugin URI: https://github.com/ColemanHaley/Omega-Psi-Utilities
  * Text Domain:       opsi-util
  * Domain Path:       /languages
  */
