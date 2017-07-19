@@ -190,7 +190,6 @@ class Opsi_Util {
 			$this->loader->add_filter( 'woocommerce_account_menu_items', $plugin_cend, 'new_menu_items', 0 );
 			add_action( 'woocommerce_account_' . self::$endpoint .  '_endpoint', array( $this, 'endpoint_content' ) );
 		}
-	}
 
 	}
 
