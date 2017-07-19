@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Omega Psi Utilities
  * Plugin URI:        https://omegapsi.org
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Adds needed functionality for managing chapters.
  * Version:           1.0.3
  * Author:            Coleman Haley
  * Author URI:        www.cch22.com
