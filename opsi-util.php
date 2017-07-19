@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              www.cch22.com
- * @since             1.0.2
+ * @since             1.0.0
  * @package           Opsi_Util
  *
  * @wordpress-plugin
  * Plugin Name:       Omega Psi Utilities
  * Plugin URI:        https://omegapsi.org
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Coleman Haley
  * Author URI:        www.cch22.com
  * License:           GPL-2.0+
