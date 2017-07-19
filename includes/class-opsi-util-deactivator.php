@@ -49,9 +49,9 @@ class Opsi_Util_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-		$chapters = new Opsi_Util_Chapters('opsi_util', '1.0.0');
+		$chapters = new Opsi_Util_Chapters('opsi_util', '1.0.1');
 		$chapters->remove_chapter_roles();
-		$chapters->remove_chapter_capabilites();
+		$chapters->remove_chapter_capabilities();
 	}
 
 }
