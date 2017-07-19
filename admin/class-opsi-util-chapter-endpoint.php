@@ -19,7 +19,7 @@ class Opsi_Util_Chapter_Endpoint {
 	 * @access public
 	 * @var string
 	 */
-	public static $endpoint = 'manage-chapter';
+	public static $endpoint = '/manage-chapter/';
 
 	/**
 	 * The ID of this plugin.
