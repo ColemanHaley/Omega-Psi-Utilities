@@ -108,14 +108,5 @@ class Opsi_Util_Chapter_Endpoint {
 	public function endpoint_content() {
 		echo '<p>Hello World!</p>';
 	}
-	/**
-	 * Plugin install action.
-	 * Flush rewrite rules to make our custom endpoint available.
-	 */
-	public static function install() {
-		flush_rewrite_rules();
-	}
+
 }
-new My_Custom_My_Account_Endpoint();
-// Flush rewrite rules on plugin activation.
-register_activation_hook( __FILE__, array( 'My_Custom_My_Account_Endpoint', 'install' ) );
