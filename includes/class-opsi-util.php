@@ -176,9 +176,6 @@ class Opsi_Util {
 		$plugin_admin = new Opsi_Util_Chapters( $this->get_plugin_name(), $this->get_version() );
 		$plugin_cend = new Opsi_Util_Chapter_Endpoint( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'init', $plugin_admin, 'register_chapter_type' );
-		$this->loader->add_action( 'edit_form_after_title', $plugin_admin, 'label_chapter_history' );
-
 
 			// Actions used to insert a new endpoint in the WordPress.
 			$this->loader->add_action( 'init', $plugin_cend, 'add_endpoints' );
@@ -192,7 +189,6 @@ class Opsi_Util {
 		//}
 
 	}
-
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality

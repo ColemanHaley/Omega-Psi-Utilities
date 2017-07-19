@@ -19,7 +19,7 @@ class Opsi_Util_Chapter_Endpoint {
 	 * @access public
 	 * @var string
 	 */
-	public static $endpoint = '/manage-chapter/';
+	public static $endpoint = 'manage-chapter';
 
 	/**
 	 * The ID of this plugin.
@@ -77,6 +77,7 @@ class Opsi_Util_Chapter_Endpoint {
 	 * @return string
 	 */
 	public function endpoint_title( $title ) {
+		if ( current_user_can( 'edit_chapters' ) ) {
 		global $wp_query;
 		$is_endpoint = isset( $wp_query->query_vars[ self::$endpoint ] );
 		if ( $is_endpoint && ! is_admin() && is_main_query() && in_the_loop() && is_account_page() ) {
@@ -84,7 +85,9 @@ class Opsi_Util_Chapter_Endpoint {
 			$title = __( 'Manage Chapter', 'woocommerce' );
 			remove_filter( 'the_title', array( $this, 'endpoint_title' ) );
 		}
+	}
 		return $title;
+	
 	}
 	/**
 	 * Insert the new endpoint into the My Account menu.
@@ -93,6 +96,7 @@ class Opsi_Util_Chapter_Endpoint {
 	 * @return array
 	 */
 	public function new_menu_items( $items ) {
+		if ( current_user_can( 'edit_chapters' ) ) {
 		// Remove the logout menu item.
 		$logout = $items['customer-logout'];
 		unset( $items['customer-logout'] );
@@ -100,13 +104,18 @@ class Opsi_Util_Chapter_Endpoint {
 		$items[ self::$endpoint ] = __( 'Manage Chapter', 'woocommerce' );
 		// Insert back the logout item.
 		$items['customer-logout'] = $logout;
+	}
 		return $items;
+
 	}
 	/**
 	 * Endpoint HTML content.
 	 */
 	public function endpoint_content() {
-		echo '<p>Hello World!</p>';
+				if ( current_user_can( 'edit_chapters' ) ) {
+		echo do_shortcode( '[contact-form-7 id="53" title="Untitled"]' );
+		//echo '<p>Hello World!</p>';
+	}
 	}
 
 }
