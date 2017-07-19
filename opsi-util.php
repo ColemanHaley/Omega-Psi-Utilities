@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              www.cch22.com
- * @since             1.0.0
+ * @since             1.0.2
  * @package           Opsi_Util
  *
  * @wordpress-plugin
