@@ -125,6 +125,7 @@ class Opsi_Util {
 		 * The class responsible for defining all actions that occur relating to chapters.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapters.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapter-endpoint.php';
 
 		$this->loader = new Opsi_Util_Loader();
 
