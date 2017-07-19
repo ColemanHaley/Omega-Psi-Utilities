@@ -188,7 +188,7 @@ class Opsi_Util {
 			$this->loader->add_filter( 'the_title', $plugin_cend, 'endpoint_title', 0 );
 			// Insering your new tab/page into the My Account page.
 			$this->loader->add_filter( 'woocommerce_account_menu_items', $plugin_cend, 'new_menu_items', 0 );
-			add_action( 'woocommerce_account_' . self::$endpoint .  '_endpoint', array( $this, 'endpoint_content' ) );
+			$this->loader->add_action( 'woocommerce_account_' . Opsi_Util_Chapter_Endpoint::$endpoint .  '_endpoint', $plugin_cend, 'endpoint_content' );
 		}
 
 	}
