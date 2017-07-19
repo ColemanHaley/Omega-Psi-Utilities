@@ -76,6 +76,7 @@ class Opsi_Util {
 		$this->define_admin_hooks();
 		$this->define_chapter_hooks();
 		$this->define_public_hooks();
+		$this->define_chapter_update_hooks();
 
 	}
 
@@ -126,6 +127,7 @@ class Opsi_Util {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapters.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapter-endpoint.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapter-update.php';
 
 		$this->loader = new Opsi_Util_Loader();
 
@@ -171,6 +173,17 @@ class Opsi_Util {
 	 * @since    1.0.0
 	 * @access   private
 	 */
+	private function define_chapter_update_hooks() {
+
+
+		$plugin_ninja = new Opsi_Util_Chapter_Update( $this->get_plugin_name(), $this->get_version() );
+
+
+			// Actions used to insert a new endpoint in the WordPress.
+			$this->loader->add_action( 'my_ninja_forms_processing', $plugin_ninja, 'ninja_submit_chapter_info_callback' );
+
+	}
+
 	private function define_chapter_hooks() {
 
 		$plugin_admin = new Opsi_Util_Chapters( $this->get_plugin_name(), $this->get_version() );
@@ -189,6 +202,7 @@ class Opsi_Util {
 		//}
 
 	}
+
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality
