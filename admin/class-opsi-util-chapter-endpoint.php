@@ -50,16 +50,7 @@ class Opsi_Util_Chapter_Endpoint {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-		if (current_user_can('edit_chapters')) {
-			// Actions used to insert a new endpoint in the WordPress.
-			add_action( 'init', array( $this, 'add_endpoints' ) );
-			add_filter( 'query_vars', array( $this, 'add_query_vars' ), 0 );
-			// Change the My Accout page title.
-			add_filter( 'the_title', array( $this, 'endpoint_title' ) );
-			// Insering your new tab/page into the My Account page.
-			add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ) );
-			add_action( 'woocommerce_account_' . self::$endpoint .  '_endpoint', array( $this, 'endpoint_content' ) );
-		}
+
 	}
 	/**
 	 * Register new endpoint to use inside My Account page.

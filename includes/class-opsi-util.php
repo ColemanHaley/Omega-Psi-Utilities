@@ -173,9 +173,23 @@ class Opsi_Util {
 	private function define_chapter_hooks() {
 
 		$plugin_admin = new Opsi_Util_Chapters( $this->get_plugin_name(), $this->get_version() );
+		$plugin_cend = new Opsi_Util_Chapter_Endpoint( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'init', $plugin_admin, 'register_chapter_type' );
 		$this->loader->add_action( 'edit_form_after_title', $plugin_admin, 'label_chapter_history' );
+
+
+			// Actions used to insert a new endpoint in the WordPress.
+			$this->loader->add_action( 'init', $plugin_cend, 'add_endpoints' );
+			$this->loader->add_filter( 'query_vars', $plugin_cend, 'add_query_vars', 0 );
+			// Change the My Accout page title.
+		if (current_user_can('edit_chapters')) {
+			$this->loader->add_filter( 'the_title', $plugin_cend, 'endpoint_title', 0 );
+			// Insering your new tab/page into the My Account page.
+			$this->loader->add_filter( 'woocommerce_account_menu_items', $plugin_cend, 'new_menu_items', 0 );
+			add_action( 'woocommerce_account_' . self::$endpoint .  '_endpoint', array( $this, 'endpoint_content' ) );
+		}
+	}
 
 	}
 

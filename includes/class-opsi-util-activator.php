@@ -49,9 +49,10 @@ class Opsi_Util_Activator {
 	 */
 	public static function activate() {
 
-		$chapters = new Opsi_Util_Chapters('opsi_util', '1.0.2');
+		$chapters = new Opsi_Util_Chapters('opsi_util', '1.0.3');
 		$chapters->add_chapter_roles();
 		$chapters->add_chapter_capabilities();
+		flush_rewrite_rules();
 
 	}
 
