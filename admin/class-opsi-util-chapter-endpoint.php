@@ -82,7 +82,7 @@ class Opsi_Util_Chapter_Endpoint {
 		$is_endpoint = isset( $wp_query->query_vars[ self::$endpoint ] );
 		if ( $is_endpoint && ! is_admin() && is_main_query() && in_the_loop() && is_account_page() ) {
 			// New page title.
-			$title = __( 'Manage Chapter', 'woocommerce' );
+			$title = esc_html__( 'Manage Chapter', $plugin_name );
 			remove_filter( 'the_title', array( $this, 'endpoint_title' ) );
 		}
 	}
@@ -101,7 +101,7 @@ class Opsi_Util_Chapter_Endpoint {
 		$logout = $items['customer-logout'];
 		unset( $items['customer-logout'] );
 		// Insert your custom endpoint.
-		$items[ self::$endpoint ] = __( 'Manage Chapter', 'woocommerce' );
+		$items[ self::$endpoint ] = esc_html__( 'Manage Chapter', $plugin_name );
 		// Insert back the logout item.
 		$items['customer-logout'] = $logout;
 	}

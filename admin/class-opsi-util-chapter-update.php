@@ -55,11 +55,7 @@ class Opsi_Util_Chapter_Update {
 	}
 
 	public function ninja_submit_chapter_info_callback( $form_data ) {
-		echo 'Shouting into the void.';
 
-		$form_id = $form_data[ 'id' ];
-
-		$form_fields = $form_data[ 'fields' ];
 		$curr_user_id = get_current_user_id();
 
 		foreach ($form_fields as $field) {
