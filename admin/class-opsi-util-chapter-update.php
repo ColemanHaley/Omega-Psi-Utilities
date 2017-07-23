@@ -68,6 +68,8 @@ class Opsi_Util_Chapter_Update {
         		update_user_meta($curr_user_id, 'chapter_history', $field[ 'value' ]);
 			}
 		}
+
+		update_user_meta($curr_user_id, 'this_is_running', 'okayyyy');
 	}
 
 }
