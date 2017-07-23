@@ -19,7 +19,7 @@ class Opsi_MergeTags extends NF_Abstracts_MergeTags
         'chapter_history' => array(
           'id' => 'chapter_history',
           'tag' => '{opsi:chapter_history}', // The tag to be  used.
-          'label' => esc_html__( 'Foo', 'opsi-util' ), // Translatable label for tag selection.
+          'label' => esc_html__( 'Chapter History', 'opsi-util' ), // Translatable label for tag selection.
           'callback' => 'chapter_history' // Class method for processing the tag. See below.
       ),
     );

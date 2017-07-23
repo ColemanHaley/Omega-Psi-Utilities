@@ -113,7 +113,7 @@ class Opsi_Util_Chapter_Endpoint {
 	 */
 	public function endpoint_content() {
 				if ( current_user_can( 'edit_chapters' ) ) {
-		echo do_shortcode( '[contact-form-7 id="53" title="Untitled"]' );
+		echo do_shortcode( '[ninja_form id=3]' );
 		//echo '<p>Hello World!</p>';
 	}
 	}
