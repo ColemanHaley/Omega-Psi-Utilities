@@ -54,6 +54,11 @@ class Opsi_Util_Chapter_Update {
 
 	}
 
+	function my_register_merge_tags(){
+		require_once 'class-opsi-util-merge-tags.php';
+		Ninja_Forms()->merge_tags[ 'opsi_merge_tags' ] = new Opsi_MergeTags();
+	}
+
 	public function ninja_submit_chapter_info_callback( $form_data ) {
 
 		$curr_user_id = get_current_user_id();

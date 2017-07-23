@@ -69,7 +69,7 @@ class Opsi_Util {
 	public function __construct() {
 
 		$this->plugin_name = 'opsi-util';
-		$this->version = '1.0.0';
+		$this->version = '1.0.3';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -181,6 +181,7 @@ class Opsi_Util {
 
 			// Actions used to insert a new endpoint in the WordPress.
 			$this->loader->add_action( 'my_ninja_forms_processing', $plugin_ninja, 'ninja_submit_chapter_info_callback' );
+			$this->loader->add_action( 'ninja_forms_loaded', $plugin_ninja, 'my_register_merge_tags' );
 
 	}
 
