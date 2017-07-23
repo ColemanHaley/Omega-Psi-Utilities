@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}
 class Opsi_MergeTags extends NF_Abstracts_MergeTags
 {
   /*
