@@ -62,10 +62,10 @@ class Opsi_Util_Chapter_Update {
 	public function ninja_submit_chapter_info_callback( $form_data ) {
 
 		$curr_user_id = get_current_user_id();
+		$form_fields = $form_data[ 'fields' ];
 
 		foreach ($form_fields as $field) {
 			if ( $field[ 'key' ] == 'chapter_history_1500440224171' && current_user_can( 'edit_chapter' ) ) {
-				update_user_meta($curr_user_id, 'this_is_running', 'okayyy1');
         		update_user_meta($curr_user_id, 'chapter_history', $field[ 'value' ]);
 			}
 		}
