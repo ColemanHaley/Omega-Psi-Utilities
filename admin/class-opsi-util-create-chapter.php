@@ -56,7 +56,7 @@ class Opsi_Util_Create_Chapter {
 
 	}
 
-	function insert_chapter_post( $user_id ) {
+	public function insert_chapter_post( $user_id ) {
 
 		if ( ! empty( $_POST['university'] ) ) {
 			update_user_meta( $user_id, 'university', trim( $_POST['university'] ) );
@@ -77,7 +77,7 @@ class Opsi_Util_Create_Chapter {
 
 	}
 
-	function add_university_field() {
+	public function add_university_field() {
 	   $university = ( ! empty( $_POST['university'] ) ) ? $_POST['university'] : '';
     	?>
     	<p>
@@ -87,7 +87,7 @@ class Opsi_Util_Create_Chapter {
     	<?php
 	}
 
-    function register_errors( $errors, $sanitized_user_login, $user_email ) {
+    public function register_errors( $errors, $sanitized_user_login, $user_email ) {
         if( isset( $_POST['role'] ) && $_POST['role'] == 'opsi_chapter' ) {
 	        if ( empty( $_POST['university'] ) || ! empty( $_POST['university'] ) && trim( $_POST['first_name'] ) == '' ) {
 	            $errors->add( 'first_name_error', __( '<strong>ERROR</strong>: You must include a first name.', 'mydomain' ) );

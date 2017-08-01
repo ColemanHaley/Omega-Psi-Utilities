@@ -183,7 +183,7 @@ class Opsi_Util_Chapters {
 	public function label_chapter_history() {
 
 		if (get_post_type() == 'opsi_chapter') {
-			echo '<h1>' . esc_html__('Chapter History') . '</h1>';
+			echo '<h1>' . esc_html__('Chapter History', $this->plugin_name) . '</h1>';
 		}
 
 	}

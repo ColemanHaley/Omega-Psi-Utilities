@@ -202,7 +202,7 @@ class Opsi_Util {
 			// Change the My Accout page title.
 		//if (current_user_can('edit_chapters')) {
 			$this->loader->add_action( 'user_register', $plugin_create, 'insert_chapter_post' );
-			$this->loader->add_action( 'register_form', $plugin_create, 'add_university_field' );
+			$this->loader->add_action( 'user_new_form', $plugin_create, 'add_university_field' );
 			$this->loader->add_action( 'registration_errors', $plugin_create, 'register_errors' );
 			$this->loader->add_filter( 'the_title', $plugin_cend, 'endpoint_title', 0 );
 			// Insering your new tab/page into the My Account page.
