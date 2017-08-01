@@ -198,12 +198,13 @@ class Opsi_Util {
 			// Actions used to insert a new endpoint in the WordPress.
 			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'register_metabox' );
 			$this->loader->add_action( 'init', $plugin_cend, 'add_endpoints' );
+			$this->loader->add_action( 'init', $plugin_admin, 'register_chapter_type' );
 			$this->loader->add_filter( 'query_vars', $plugin_cend, 'add_query_vars', 0 );
 			// Change the My Accout page title.
 		//if (current_user_can('edit_chapters')) {
 			$this->loader->add_action( 'user_register', $plugin_create, 'insert_chapter_post' );
 			$this->loader->add_action( 'user_new_form', $plugin_create, 'add_university_field' );
-			$this->loader->add_action( 'registration_errors', $plugin_create, 'register_errors' );
+			$this->loader->add_filter( 'user_profile_update_errors', $plugin_create, 'register_errors', 10, 3 );
 			$this->loader->add_filter( 'the_title', $plugin_cend, 'endpoint_title', 0 );
 			// Insering your new tab/page into the My Account page.
 			$this->loader->add_filter( 'woocommerce_account_menu_items', $plugin_cend, 'new_menu_items', 0 );

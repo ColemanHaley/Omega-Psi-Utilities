@@ -164,15 +164,11 @@ class Opsi_Util_Chapters {
 		  ) );
 
 		  $cmb_demo->add_field( array(
-		    'name'       => esc_html__( 'Chapter ID', $this->plugin_name ),
-		    'id'         => $prefix . 'id',
-		    'type'       => 'text',
-		    'default'    => 'set_id_default'
+		    'name'          => esc_html__( 'Chapter ID', $this->plugin_name ),
+		    'id'            => $prefix . 'id',
+		    'type'          => 'text',
+		    'default_cb'    => 'opsi_set_id_default'
 		  ) );
-	}
-
-	public function set_id_default( $field_args, $field ) {
-		return get_post_meta( $field->object_id, 'university', true );
 	}
 
 	/**

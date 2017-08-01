@@ -49,6 +49,11 @@ function deactivate_opsi_util() {
 	Opsi_Util_Deactivator::deactivate();
 }
 
+function opsi_set_id_default( $field_args, $field ) {
+		return get_post_meta( $field->object_id, 'university', true );
+	
+}
+
 register_activation_hook( __FILE__, 'activate_opsi_util' );
 register_deactivation_hook( __FILE__, 'deactivate_opsi_util' );
 

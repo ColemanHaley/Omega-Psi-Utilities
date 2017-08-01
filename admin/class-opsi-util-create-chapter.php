@@ -63,7 +63,7 @@ class Opsi_Util_Create_Chapter {
 		}
 		$user_meta = get_userdata($user_id);
 		$user_roles = $user_meta->roles;
-		if ( in_array( "opsi_chapter", $user_roles ) ) {
+		if ( in_array( "ospi_chapter", $user_roles ) ) {
 			$chapter_page = array(
 					'post_author'    => $user_id,
 					'post_title'     => $user_meta->university,
@@ -80,17 +80,34 @@ class Opsi_Util_Create_Chapter {
 	public function add_university_field() {
 	   $university = ( ! empty( $_POST['university'] ) ) ? $_POST['university'] : '';
     	?>
-    	<p>
-    		<label for="university"><?php _e( 'University (required for chapter)', $this->plugin_name ) ?> <br />
-    			<input type="text" name="university" id="university" class="input" value="<?php echo esc_attr( stripslashes( $university ) ); ?>" size="25" /></label>
-    	</p>
+    	<table class="form-table">
+    		<tr class="form-field form-required">
+    				<th scope="row"><label for="university"><?php _e( 'University', $this->plugin_name ); ?><span class="description" id="uni_descrip">
+    					<script>
+    						function requiredQ() {
+	    						form = document.getElementByID("createuser");
+	    						el = document.getElementByID("uni_descrip");
+	    						role = form.elements["role"];
+	    						if (role.value == 'ospi_chapter') {
+	    							el.innerHTML = '(required)';
+	    						} else {
+	    							el.innerHTML = 'best';
+	    						}
+	    					}
+	    					form = document.getElementByID("createuser");
+	    					role = form.elements["role"];
+	    					role.onchange =  requiredQ();
+    					</script></span></label></th>
+    				<td><input type="text" name="university" id="university" class="input" value="<?php echo esc_attr( stripslashes( $university ) ); ?>" /></td>
+    		</tr>
+    	</table>
     	<?php
 	}
 
-    public function register_errors( $errors, $sanitized_user_login, $user_email ) {
-        if( isset( $_POST['role'] ) && $_POST['role'] == 'opsi_chapter' ) {
-	        if ( empty( $_POST['university'] ) || ! empty( $_POST['university'] ) && trim( $_POST['first_name'] ) == '' ) {
-	            $errors->add( 'first_name_error', __( '<strong>ERROR</strong>: You must include a first name.', 'mydomain' ) );
+    public function register_errors( $errors, $update, $user ) {
+       if( isset($_POST['role']) && $_POST['role'] == 'ospi_chapter' ) {
+	  	 if ( empty( $_POST['university'] ) || ! empty( $_POST['university'] ) && trim( $_POST['university'] ) == '' ) {
+	    	    $errors->add( 'university_error', __( '<strong>ERROR</strong>: You must include a university.', $this->plugin_name ) );
 	        }
     	}
 
