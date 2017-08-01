@@ -130,6 +130,7 @@ class Opsi_Util {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapters.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapter-endpoint.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-chapter-update.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-opsi-util-create-chapter.php';
 
 		$this->loader = new Opsi_Util_Loader();
 
@@ -190,14 +191,19 @@ class Opsi_Util {
 	private function define_chapter_hooks() {
 
 		$plugin_admin = new Opsi_Util_Chapters( $this->get_plugin_name(), $this->get_version() );
+		$plugin_create = new Opsi_Util_Create_Chapter( $this->get_plugin_name(), $this->get_version() );
 		$plugin_cend = new Opsi_Util_Chapter_Endpoint( $this->get_plugin_name(), $this->get_version() );
 
 
 			// Actions used to insert a new endpoint in the WordPress.
+			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'register_metabox' );
 			$this->loader->add_action( 'init', $plugin_cend, 'add_endpoints' );
 			$this->loader->add_filter( 'query_vars', $plugin_cend, 'add_query_vars', 0 );
 			// Change the My Accout page title.
 		//if (current_user_can('edit_chapters')) {
+			$this->loader->add_action( 'user_register', $plugin_create, 'insert_chapter_post' );
+			$this->loader->add_action( 'register_form', $plugin_create, 'add_university_field' );
+			$this->loader->add_action( 'registration_errors', $plugin_create, 'register_errors' );
 			$this->loader->add_filter( 'the_title', $plugin_cend, 'endpoint_title', 0 );
 			// Insering your new tab/page into the My Account page.
 			$this->loader->add_filter( 'woocommerce_account_menu_items', $plugin_cend, 'new_menu_items', 0 );

@@ -62,10 +62,10 @@ class Opsi_Util_Chapters {
 	 * @since    1.0.0
 	 */
 	public function add_chapter_roles() {
-		add_role( ' opsi_chapter_member', esc_html__('Chapter Member', $plugin_name) );
-		add_role( 'opsi_chapter_faculty', esc_html__('Faculty', $plugin_name) ); //TODO: is this the right name?
-		add_role( 'ospi_chapter', esc_html__('Chapter', $plugin_name), array('can_view_member_pages' => true) ); //TODO: chapter account or chapter admin account?
-		add_role( 'opsi_admin', esc_html__('National Board Account', $plugin_name) );
+		add_role( ' opsi_chapter_member', esc_html__('Chapter Member', $this->plugin_name) );
+		add_role( 'opsi_chapter_faculty', esc_html__('Faculty', $this->plugin_name) ); //TODO: is this the right name?
+		add_role( 'ospi_chapter', esc_html__('Chapter', $this->plugin_name), array('can_view_member_pages' => true) ); //TODO: chapter account or chapter admin account?
+		add_role( 'opsi_admin', esc_html__('National Board Account', $this->plugin_name) );
 	}
 
 	public function remove_chapter_roles() {
@@ -130,13 +130,13 @@ class Opsi_Util_Chapters {
 	 * @since    1.0.0
 	 */
 	public function register_chapter_type() {
-/*
+
 		$args = array();
 
 		$labels = array();
-		$labels['name'] = esc_html__('Chapters', $plugin_name);
-		$labels['singular_name'] = esc_html__('Chapter', $plugin_name);
-		$labels['all_items'] = esc_html__('All Chapters', $plugin_name);
+		$labels['name'] = esc_html__('Chapters', $this->plugin_name);
+		$labels['singular_name'] = esc_html__('Chapter', $this->plugin_name);
+		$labels['all_items'] = esc_html__('All Chapters', $this->plugin_name);
 
 		$args['labels'] = $labels;
 		$args['public'] = true;
@@ -148,7 +148,31 @@ class Opsi_Util_Chapters {
 		$args['supports'] = ['title', 'editor'];
 
     	register_post_type( 'opsi_chapter', $args );
-    	*/
+ 
+	}
+
+	public function register_metabox() {
+		  $prefix = 'opsi_chapter_';
+
+		  /**
+		   * Sample metabox to demonstrate each field type included
+		   */
+		  $cmb_demo = new_cmb2_box( array(
+		    'id'            => $prefix . 'metabox',
+		    'title'         => esc_html__( 'Chapter Info', $this->plugin_name ),
+		    'object_types'  => array( 'opsi_chapter', ), // Post type
+		  ) );
+
+		  $cmb_demo->add_field( array(
+		    'name'       => esc_html__( 'Chapter ID', $this->plugin_name ),
+		    'id'         => $prefix . 'id',
+		    'type'       => 'text',
+		    'default'    => 'set_id_default'
+		  ) );
+	}
+
+	public function set_id_default( $field_args, $field ) {
+		return get_post_meta( $field->object_id, 'university', true );
 	}
 
 	/**
