@@ -23,7 +23,7 @@ $university_id = get_post_meta(get_the_ID(), 'university', true);
 			display: table-header-group;
 		}
 		.divTableCell, .divTableHead {
-			border: 1px solid #999999;
+			/*border: 1px solid #999999;*/
 			display: table-cell;
 			padding: 3px 10px;
 		}

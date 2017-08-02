@@ -10,7 +10,6 @@
 get_header();
 
 ?>
-<?php get_template_part( 'components/title-bar' ); ?>
 	<div id="page-content" class="page-content">
 		<div class="container">
 			<div class="row">
