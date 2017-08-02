@@ -115,53 +115,11 @@ class Opsi_Util_Create_Chapter {
     }
 
     public function single_chapter_template( $template ) {
-    	$find = array();
-    	$file = '';
 
-    	if ( is_singular() ) {
-    		$file = 'single-chapter.php';
+    	if ( 'opsi_chapter' == get_post_type(get_queried_object_id()) && ! $template ) {
+    		$template = dirname('../opsi-util.php') . '/templates/single-opsi_chapter.php';
     	}
-
-    	if ( file_exists( $this->locate_template( $file ) ) ) {
-    		$template = $this->get_template( $file );
-    	}
-
     	return $template;
     }
 
-    private function get_template( $template_name, $args = array(), $template_path = '', $default_path = '' ) {
-
-    	if ( is_array( $args ) && isset( $args ) ) {
-    		extract( $args );
-    	}
-
-    	$template_file = $this->locate_template( $template_name, $tempate_path, $default_path );
-
-    	if ( ! file_exists( $template_file ) ) {
-    		_doing_it_wrong( __FUNCTION__, sprintf( '<code>%s</code> does not exist.', $template_file ), '1.0.3');
-    		return;
-    	}
-
-    	include $template_file;
-
-    }
-
-    private function locate_template( $template_name, $template_path = '', $default_path = '' ) {
-
-    	if ( ! $template_path ) {
-    		$template_path = 'templates/';
-    	}
-
-    	if ( ! $default_path ) {
-    		$default_path = plugin_dir_path( '../opsi-util.php' ) . 'templates/';
-    	}
-
-    	$template = locate_template( array( $template_path . $template_name, $template_name ) );
-
-    	if ( ! $template ) {
-    		$template = $default_path . $template_name;
-    	}
-
-    	return apply_filters( 'opsi_locate_template', $template, $template_name, $template_path, $default_path );
-    }
 }
