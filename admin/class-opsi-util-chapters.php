@@ -154,7 +154,6 @@ class Opsi_Util_Chapters {
 
 	public function register_metabox() {
 		  $prefix = 'opsi_chapter_';
-		  wp_die("k");
 		  /**
 		   * Sample metabox to demonstrate each field type included
 		   */
