@@ -53,7 +53,8 @@ function opsi_set_id_default( $field_args, $field ) {
 		return get_post_meta( $field->object_id, 'university', true );
 	
 }
-add_filter('single_template', 'ospi_single_chapter_template');
+
+add_filter('single_template', 'opsi_single_chapter_template');
 
 function opsi_single_chapter_template( $template ) {
 
