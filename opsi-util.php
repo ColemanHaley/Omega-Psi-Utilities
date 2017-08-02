@@ -53,6 +53,15 @@ function opsi_set_id_default( $field_args, $field ) {
 		return get_post_meta( $field->object_id, 'university', true );
 	
 }
+add_filter('single_template', 'ospi_single_chapter_template');
+
+function opsi_single_chapter_template( $template ) {
+
+    	if ( 'opsi_chapter' == get_post_type(get_queried_object_id()) && ! $template ) {
+    		$template = dirname( __FILE__ ) . '/templates/single-opsi_chapter.php';
+    	}
+    	return $template;
+}
 
 register_activation_hook( __FILE__, 'activate_opsi_util' );
 register_deactivation_hook( __FILE__, 'deactivate_opsi_util' );

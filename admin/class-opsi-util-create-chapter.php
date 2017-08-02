@@ -114,12 +114,4 @@ class Opsi_Util_Create_Chapter {
         return $errors;
     }
 
-    public function single_chapter_template( $template ) {
-
-    	if ( 'opsi_chapter' == get_post_type(get_queried_object_id()) && ! $template ) {
-    		$template = dirname('../opsi-util.php') . '/templates/single-opsi_chapter.php';
-    	}
-    	return $template;
-    }
-
 }
