@@ -117,8 +117,8 @@ class Opsi_Util_Create_Chapter {
     public function single_chapter_template( $single ) {
     	global $wp_query, $post;
     	if ( !$single && $post->post_type == 'opsi_chapter' ) {
-    		if( file_exists( plugin_dir_path( __FILE__ ) . 'single-chapter.php' ) ) {
-    			return plugin_dir_path( __FILE__ ) . 'single-chapter.php';
+    		if( file_exists( plugin_dir_path( '../opsi-util.php' ) . 'templates/single-chapter.php' ) ) {
+    			return plugin_dir_path( '../opsi-util.php' ) . 'templates/single-chapter.php';
     		}
     	}
     	return $single;
