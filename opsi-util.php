@@ -58,7 +58,7 @@ add_filter('single_template', 'opsi_single_chapter_template');
 
 function opsi_single_chapter_template( $template ) {
 
-    	if ( 'opsi_chapter' == get_post_type(get_queried_object_id()) && ! $template ) {
+    	if ( 'opsi_chapter' == get_post_type(get_queried_object_id()) ) {
     		$template = dirname( __FILE__ ) . '/templates/single-opsi_chapter.php';
     	}
     	return $template;
