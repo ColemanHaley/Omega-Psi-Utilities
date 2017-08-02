@@ -56,7 +56,7 @@ $university_id = get_post_meta(get_the_ID(), 'university', true);
 						</div>
 						<div class="divTableCell">&nbsp;
 							<h3>Chapter Bylaws:</h3>
-							<?php echo Insight::setting('header_type'); ?>
+							<?php echo Insight::header_class(); ?>
 						</div>
 					</div>
 				</div>

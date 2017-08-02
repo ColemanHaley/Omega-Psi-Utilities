@@ -62,6 +62,7 @@ class Opsi_Util_Create_Chapter {
 			update_user_meta( $user_id, 'university', trim( $_POST['university'] ) );
 		}
 		$user_meta = get_userdata($user_id);
+		$options = file_get_contents('chapter_post_settings.txt');
 		$user_roles = $user_meta->roles;
 		if ( in_array( "ospi_chapter", $user_roles ) ) {
 			$chapter_page = array(
@@ -70,7 +71,7 @@ class Opsi_Util_Create_Chapter {
 					'post_status'    => 'publish',
 					'post_type'      => 'opsi_chapter', 
 					'comment_status' => 'closed',
-					'meta_input'     => array( 'university' => $user_id )
+					'meta_input'     => array( 'university' => $user_id, 'insight_post_options' => $options )
 				);
 			wp_insert_post( $chapter_page );
 		}
