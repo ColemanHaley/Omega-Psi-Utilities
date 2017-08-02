@@ -71,7 +71,7 @@ class Opsi_Util_Create_Chapter {
 					'post_status'    => 'publish',
 					'post_type'      => 'opsi_chapter', 
 					'comment_status' => 'closed',
-					'meta_input'     => array( 'university' => $user_id.
+					'meta_input'     => array( 'university' => $user_id,
 					'insight_post_options' => $options )
 				);
 			wp_insert_post( $chapter_page );
