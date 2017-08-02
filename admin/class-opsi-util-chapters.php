@@ -119,6 +119,7 @@ class Opsi_Util_Chapters {
 
 		$chapter_role = get_role('ospi_chapter');
 		$chapter_role->add_cap('edit_chapters');
+		$chapter_role->add_cap('edit_chapter');
 		$chapter_role->add_cap('publish_chapters');
 		$chapter_role->add_cap('edit_published_chapters');
 		$chapter_role->add_cap('edit_private_chapters');

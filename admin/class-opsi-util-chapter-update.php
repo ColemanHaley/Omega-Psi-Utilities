@@ -67,7 +67,7 @@ class Opsi_Util_Chapter_Update {
 		$form_fields = $form_data[ 'fields' ];
 
 		foreach ($form_fields as $field) {
-			if ( $field[ 'key' ] == 'chapter_history_1500440224171' && current_user_can( 'edit_chapter' ) ) {
+			if ( $field[ 'key' ] == 'chapter_history_1500440224171' && current_user_can( 'edit_chapters' ) ) {
         		update_user_meta($curr_user_id, 'chapter_history', $field[ 'value' ]);
 			}
 		}
