@@ -114,4 +114,11 @@ class Opsi_Util_Create_Chapter {
         return $errors;
     }
 
+    public function init_global_variable() {
+    	global $insight_page_options;
+    	if( is_singular( 'opsi_chapter' ) ) {
+    		$insight_page_options = unserialize( get_post_meta( get_the_ID(), 'insight_post_options', true) );
+    	}
+    }
+
 }

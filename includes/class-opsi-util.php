@@ -198,6 +198,7 @@ class Opsi_Util {
 			// Actions used to insert a new endpoint in the WordPress.
 			$this->loader->add_action( 'cmb2_admin_init', $plugin_admin, 'register_metabox' );
 			$this->loader->add_action( 'init', $plugin_cend, 'add_endpoints' );
+			$this->loader->add_action( 'wp', $plugin_create, 'init_global_variable' );
 			$this->loader->add_action( 'init', $plugin_admin, 'register_chapter_type' );
 			$this->loader->add_filter( 'query_vars', $plugin_cend, 'add_query_vars', 0 );
 			// Change the My Accout page title.
