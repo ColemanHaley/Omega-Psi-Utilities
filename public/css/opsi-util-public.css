@@ -2,3 +2,278 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+ .post-password-form {
+	input[type=submit] {
+		margin: 30px auto 0;
+		display: block;
+	}
+}
+
+.tm-box-content {
+	margin-bottom: 30px;
+	padding: 30px;
+	border: 1px solid #eeeeee;
+	background-color: #ffffff;
+}
+
+.single-post {
+	&.page-has-no-sidebar {
+		.page-content {
+			> .container {
+				> .row {
+					justify-content: center;
+				}
+			}
+		}
+	}
+	.site {
+		background-color: #f8f8f8;
+	}
+	.page-main-content {
+		padding-top: 65px;
+		padding-bottom: 70px;
+		> .post {
+			padding-top: 58px;
+			padding-bottom: 0;
+			.post-feature {
+				margin-top: 36px;
+			}
+		}
+		.entry-header {
+			text-align: center;
+		}
+		.post-categories {
+			margin-bottom: 2px;
+			text-transform: uppercase;
+			a {
+				color: inherit;
+				letter-spacing: 1.75px;
+				font-weight: bold;
+				font-size: 14px;
+			}
+		}
+		.entry-title {
+			margin-bottom: 7px;
+			font-size: 30px;
+		}
+		.post-date {
+			color: #a9adb9;
+			letter-spacing: 0;
+			line-height: 30px;
+		}
+		.entry-content {
+			margin: 45px 0 50px;
+		}
+		.entry-author {
+			display: flex;
+			padding: 45px 50px 40px;
+			align-items: center;
+			.author-avatar {
+				min-width: 108px;
+				width: 108px;
+				img {
+					border-radius: 50%;
+				}
+			}
+			.author-description {
+				margin-left: 40px;
+			}
+			.author-name {
+				margin-bottom: 11px;
+				font-size: 18px;
+			}
+			.author-biographical-info {
+				font-size: 16px;
+				line-height: 1.65;
+			}
+			.author-social-networks {
+				@extend %clearfix;
+				margin: 12px -8px 0;
+				a {
+					display: block;
+					float: left;
+					padding: 6px 8px;
+					font-size: 16px;
+					line-height: 1;
+				}
+			}
+		}
+		.post-thumbnail {
+			text-align: center;
+		}
+		.post-tags {
+			span {
+				text-transform: uppercase;
+				letter-spacing: 1.75px;
+				font-weight: bold;
+				font-size: 14px;
+			}
+			a {
+				display: inline-block;
+				padding: 3px 8px;
+			}
+		}
+	}
+	.entry-footer {
+		border-top: 1px solid #eeeeee;
+		.row {
+			padding-top: 25px;
+			padding-bottom: 25px;
+			min-height: 90px;
+		}
+	}
+	.post-audio {
+		margin-bottom: -8px;
+		iframe {
+			width: 100%;
+			height: 153px;
+			border: 0;
+		}
+	}
+	.post-link {
+		padding: 40px 35px;
+		a {
+			color: #ffffff;
+			letter-spacing: .2px;
+			font-size: 24px;
+			line-height: 1.55;
+			word-wrap: break-word;
+		}
+	}
+	.post-feature {
+		.post-quote {
+			padding: 42px 35px 80px;
+			background: url('assets/images/blockquote.png') no-repeat;
+			background-position: bottom 40px right 40px;
+			.post-quote-text {
+				margin-bottom: 11px;
+				color: #ffffff;
+				letter-spacing: .2px;
+				font-size: 24px;
+				line-height: 1.55;
+			}
+			.post-quote-name {
+				letter-spacing: 1.75px;
+				font-weight: bold;
+				font-size: 14px;
+				text-transform: uppercase;
+				a {
+					color: inherit;
+				}
+			}
+		}
+	}
+	.format-gallery {
+		.swiper-pagination {
+			position: absolute;
+			bottom: 27px;
+			left: 0;
+			width: 100%;
+			margin-top: 0;
+			.swiper-pagination-bullet {
+				border-color: #ffffff;
+				opacity: .2;
+			}
+			.swiper-pagination-bullet:hover,
+			.swiper-pagination-bullet-active {
+				border-color: #ffffff;
+				opacity: 1;
+			}
+		}
+	}
+	.post-share {
+		margin: 0 -8px;
+		text-align: right;
+		a {
+			display: inline-block;
+			padding: 6px 8px;
+			font-size: 16px;
+		}
+	}
+	.related-posts-wrap {
+		margin-top: 55px;
+		margin-bottom: 30px;
+		.related-title {
+			margin-bottom: 30px;
+			text-align: center;
+			font-size: 32px;
+		}
+	}
+	.related-posts {
+		.related-post-item {
+			padding: 40px 30px;
+			width: 100%;
+			border: 1px solid #eeeeee;
+			background: #ffffff;
+		}
+		.post-categories {
+			margin-bottom: 6px;
+		}
+		.related-post-title {
+			a {
+				display: block;
+				margin-bottom: 12px;
+				font-size: 30px;
+				line-height: 1.2;
+				color: inherit;
+			}
+		}
+		.post-overlay {
+			h4 {
+				position: absolute;
+				top: 0;
+				right: 18px;
+				font-size: 150px;
+				line-height: 1;
+				opacity: .05;
+			}
+		}
+		.post-content {
+			position: relative;
+			z-index: 1;
+		}
+		&.tm-swiper {
+			.swiper-pagination {
+				margin-top: 30px;
+			}
+		}
+	}
+}
+/*
+@include media-breakpoint-down(md) {
+	.single-post {
+		.page-main-content {
+			.entry-author {
+				padding: 30px;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.single-post {
+		.page-main-content {
+			.entry-title {
+				font-size: 24px;
+			}
+			.entry-content {
+				margin-bottom: 50px;
+			}
+			.entry-author {
+				display: block;
+				margin-bottom: 35px;
+				padding: 30px;
+				.author-avatar {
+					margin-bottom: 30px;
+					min-width: 130px;
+					width: 130px;
+				}
+				.author-description {
+					margin-left: 0;
+
+				}
+			}
+		}
+	}
+}
+*/

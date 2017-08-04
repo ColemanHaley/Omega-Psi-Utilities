@@ -72,9 +72,9 @@ class Opsi_Util_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+		if ( get_page_template_slug() == 'single-opsi_chapter.php' ) {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/opsi-util-public.css', array(), $this->version, 'all' );
-
+		}
 	}
 
 	/**
