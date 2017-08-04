@@ -10,7 +10,7 @@
 get_header();
 
 ?>
-<link rel="stylesheet" href="../public/css/opsi-util-public.css" />
+<link rel="stylesheet" href="../public/css/opsi-util-public.css" >
 	<div id="page-content" class="page-content">
 		<div class="container">
 			<div class="row">
